@@ -84,7 +84,6 @@ def dec_to_bin(decimal):
         bin_convert=bin_convert+str(j)
     return bin_convert
 
-
 #Conversions from hexadecimal
 def hex_convert():
     #Hexadecimal to decimal
@@ -133,8 +132,7 @@ def hex_convert():
             Octaldisplay.insert(INSERT, '')
             Binarydisplay.delete(0, END)
             Binarydisplay.insert(INSERT, '')
-        
-        
+               
 #Hexadecimal to octal
 def hex_to_dec_to_oct(hexadecimal):
     hexadecimal = Hexadecimaldisplay.get()
