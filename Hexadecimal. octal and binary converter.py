@@ -1,7 +1,7 @@
 from tkinter import *
 
 root = Tk()
-root.title("Binary, hexadecimal and octal converter")
+root.title("Hexadecimal_Octal_Binary Converter")
 root.geometry('380x270')
 
 #Clear command
@@ -320,7 +320,7 @@ def bin_to_dec_to_oct():
     return octal_convert
            
 #Title
-Title = Label(root, text= "Binary, hexadecimal and octal converter", font = ('Avenir', 18, 'normal'))
+Title = Label(root, text= "Hexadecimal, Octal and Binary Converter", font = ('Avenir', 18, 'normal'))
 Title.grid(column = 0, columnspan = 7, padx = 5, pady = 5)
 
 #Entry Boxes
