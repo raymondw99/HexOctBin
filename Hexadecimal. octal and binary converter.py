@@ -181,7 +181,7 @@ def hex_to_dec_to_bin(hexadecimal):
 
 #Conversions from octal
 def oct_convert():
-    #Binary to decimal
+    #Octal to decimal
     try:
         octal = Octaldisplay.get()
         if False in [f == '0' or f == '1' or f == '2' or f == '3'
@@ -241,14 +241,14 @@ def oct_to_dec_to_bin():
     for digit in octal:
         decimal = decimal*8 + int(digit)
     binary=[]
-    while (decimal>0):
-        b=int(decimal%2)
-        binary.append(b)
-        decimal=(decimal-b)/2
-        binary_convert=""
-    for j in octal[::-1]:
-        binary_convert=binary_convert+str(j)
-    return binary_convert
+    while (decimal > 0): 
+        a=int(decimal%2)
+        binary.append(a)
+        decimal=(decimal-a)/2
+        bin_convert=""
+        for j in binary[::-1]:
+            bin_convert=bin_convert+str(j)
+    return bin_convert
 
 #Conversions from binary
 def bin_convert():
