@@ -132,7 +132,7 @@ def hex_convert():
             Octaldisplay.insert(INSERT, '')
             Binarydisplay.delete(0, END)
             Binarydisplay.insert(INSERT, '')
-               
+                
 #Hexadecimal to octal
 def hex_to_dec_to_oct(hexadecimal):
     hexadecimal = Hexadecimaldisplay.get()
@@ -181,19 +181,18 @@ def hex_to_dec_to_bin(hexadecimal):
 
 #Conversions from octal
 def oct_convert():
-    #Octal to decimal
+    #Binary to decimal
     try:
         octal = Octaldisplay.get()
         if False in [f == '0' or f == '1' or f == '2' or f == '3'
                      or f == '4' or f == '5' or f == '6' or f == '7'
-                     for f in octal]:          
+                     for f in octal]: 
             Decimaldisplay.delete(0, END)
             Decimaldisplay.insert(INSERT, 'Error')
             Hexadecimaldisplay.delete(0, END)
             Hexadecimaldisplay.insert(INSERT, 'Error')
             Binarydisplay.delete(0, END)
-            Binarydisplay.insert(INSERT, 'Error')
-            
+            Binarydisplay.insert(INSERT, 'Error')  
         else:
            decimal = 0
            for digit in octal:
@@ -211,7 +210,7 @@ def oct_convert():
             Hexadecimaldisplay.delete(0, END)
             Hexadecimaldisplay.insert(INSERT, '0')
             Binarydisplay.delete(0, END)
-            Binarydisplay.insert(INSERT, '0')
+            Binarydisplay.insert(INSERT, '0')             
         else:
             Decimaldisplay.delete(0, END)
             Decimaldisplay.insert(INSERT, '')
@@ -219,7 +218,7 @@ def oct_convert():
             Hexadecimaldisplay.insert(INSERT, '')
             Binarydisplay.delete(0, END)
             Binarydisplay.insert(INSERT, '')
-
+            
 #Octal to hexadecimal
 def oct_to_dec_to_hex():
     octal = Octaldisplay.get()
@@ -234,21 +233,22 @@ def oct_to_dec_to_hex():
         num = hexnum[rest]
         result = num + result
     return result
-    
+
 #Octal to binary
 def oct_to_dec_to_bin():
     octal = Octaldisplay.get()
     decimal = 0
     for digit in octal:
-        decimal = decimal*2 + int(digit)
-    hexnum = '0123456789abcdef'
-    result = ''
+        decimal = decimal*8 + int(digit)
+    binary=[]
     while (decimal>0):
-        rest = (decimal%16)
-        decimal = (decimal-rest)//16
-        num = hexnum[rest]
-        result = num + result
-    return result
+        b=int(decimal%2)
+        binary.append(b)
+        decimal=(decimal-b)/2
+        binary_convert=""
+    for j in octal[::-1]:
+        binary_convert=binary_convert+str(j)
+    return binary_convert
 
 #Conversions from binary
 def bin_convert():
