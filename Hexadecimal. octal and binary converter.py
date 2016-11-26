@@ -2,7 +2,8 @@ from tkinter import *
 
 root = Tk()
 root.title("Hexadecimal_Octal_Binary_Converter")
-root.geometry('380x270')
+root.geometry('360x270')
+root.resizable(width=False, height=False)
 
 #Clear command
 def clear():
