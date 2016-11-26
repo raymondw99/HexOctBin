@@ -1,7 +1,7 @@
 from tkinter import *
 
 root = Tk()
-root.title("Hexadecimal_Octal_Binary Converter")
+root.title("Hexadecimal_Octal_Binary_Converter")
 root.geometry('380x270')
 
 #Clear command
