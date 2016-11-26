@@ -353,7 +353,7 @@ Binarydisplay.grid(row = 4, column = 1, sticky = E, pady = 0, padx = 0)
 Convert4 = Button(root, text = "Convert", command = bin_convert, font = ('Avenir', 15, 'normal'))
 Convert4.grid(row = 4, column = 3, sticky = E, pady = 0, padx = 0)
 
-#Clear
+#Clear Button
 clear = Button(text = "Clear", command = clear, font = ('Avenir', 15, 'normal'))
 clear.grid(row = 5, column = 0, columnspan = 15, padx = 10, pady = 5, sticky =  N+S+E+W)
 
