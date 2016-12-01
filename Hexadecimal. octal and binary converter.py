@@ -27,20 +27,29 @@ def dec_convert():
            Binarydisplay.delete(0, END)
            Binarydisplay.insert(INSERT, '0')             
         else:
-            hexnum = '0123456789abcdef'
-            decnum = int(decimal)
-            result = ''
-            while (decnum>0):
-                rest = (decnum%16)
-                decnum = (decnum-rest)//16
-                num = hexnum[rest]
-                result = num + result
-            Octaldisplay.delete(0, END)
-            Octaldisplay.insert(INSERT, dec_to_oct(decimal))
-            Hexadecimaldisplay.delete(0, END)
-            Hexadecimaldisplay.insert(INSERT, result)
-            Binarydisplay.delete(0, END)
-            Binarydisplay.insert(INSERT, dec_to_bin(decimal))        
+            hexnum = '0123456789abcdef'       
+            try:
+                decnum = int(decimal)
+                result = ''
+                while (decnum>0):
+                    rest = (decnum%16)
+                    decnum = (decnum-rest)//16
+                    num = hexnum[rest]
+                    result = num + result
+                Octaldisplay.delete(0, END)
+                Octaldisplay.insert(INSERT, dec_to_oct(decimal))
+                Hexadecimaldisplay.delete(0, END)
+                Hexadecimaldisplay.insert(INSERT, result)
+                Binarydisplay.delete(0, END)
+                Binarydisplay.insert(INSERT, dec_to_bin(decimal))
+            except ValueError:
+                Octaldisplay.delete(0, END)
+                Octaldisplay.insert(INSERT, 'Error')
+                Hexadecimaldisplay.delete(0, END)
+                Hexadecimaldisplay.insert(INSERT, 'Error')
+                Binarydisplay.delete(0, END)
+                Binarydisplay.insert(INSERT, 'Error')
+                
     else:
         if decimal == '':
            Octaldisplay.delete(0, END)
@@ -353,7 +362,7 @@ Binarydisplay.grid(row = 4, column = 1, sticky = E, pady = 0, padx = 0)
 Convert4 = Button(root, text = "Convert", command = bin_convert, font = ('Avenir', 15, 'normal'))
 Convert4.grid(row = 4, column = 3, sticky = E, pady = 0, padx = 0)
 
-#Clear Button
+#Clear
 clear = Button(text = "Clear", command = clear, font = ('Avenir', 15, 'normal'))
 clear.grid(row = 5, column = 0, columnspan = 15, padx = 10, pady = 5, sticky =  N+S+E+W)
 
