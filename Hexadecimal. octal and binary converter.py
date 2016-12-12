@@ -177,6 +177,7 @@ def oct_convert():
             octal_change_display('0')            
         else:
             octal_change_display('')
+            
 #Octal to hexadecimal
 def oct_to_dec_to_hex():
     octal = Octaldisplay.get()
