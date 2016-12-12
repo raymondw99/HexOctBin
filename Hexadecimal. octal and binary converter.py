@@ -20,12 +20,7 @@ def dec_convert():
                  or f == '4' or f == '5' or f == '6' or f == '7'
                  or f == '8' or f == '9' for f in decimal]:
         if decimal == '0':
-           Octaldisplay.delete(0, END)
-           Octaldisplay.insert(INSERT, '0')
-           Hexadecimaldisplay.delete(0, END)
-           Hexadecimaldisplay.insert(INSERT, '0')
-           Binarydisplay.delete(0, END)
-           Binarydisplay.insert(INSERT, '0')             
+            decimal_change_display('0')            
         else:
             hexnum = '0123456789abcdef'       
             try:
@@ -43,28 +38,12 @@ def dec_convert():
                 Binarydisplay.delete(0, END)
                 Binarydisplay.insert(INSERT, dec_to_bin(decimal))
             except ValueError:
-                Octaldisplay.delete(0, END)
-                Octaldisplay.insert(INSERT, 'Error')
-                Hexadecimaldisplay.delete(0, END)
-                Hexadecimaldisplay.insert(INSERT, 'Error')
-                Binarydisplay.delete(0, END)
-                Binarydisplay.insert(INSERT, 'Error')
-                
+                decimal_change_display('Error')                                
     else:
         if decimal == '':
-           Octaldisplay.delete(0, END)
-           Octaldisplay.insert(INSERT, '')
-           Hexadecimaldisplay.delete(0, END)
-           Hexadecimaldisplay.insert(INSERT, '')
-           Binarydisplay.delete(0, END)
-           Binarydisplay.insert(INSERT, '')            
+            decimal_change_display('')           
         else:
-           Octaldisplay.delete(0, END)
-           Octaldisplay.insert(INSERT, 'Error')
-           Hexadecimaldisplay.delete(0, END)
-           Hexadecimaldisplay.insert(INSERT, 'Error')
-           Binarydisplay.delete(0, END)
-           Binarydisplay.insert(INSERT, 'Error')
+            decimal_change_display('Error')
 
 #Decimal to octal
 def dec_to_oct(decimal):
@@ -104,12 +83,7 @@ def hex_convert():
                      or f == '8' or f == '9' or f == 'a' or f == 'b'
                      or f == 'c' or f == 'd' or f == 'e' or f == 'f'
                      for f in hexadecimal]: 
-            Decimaldisplay.delete(0, END)
-            Decimaldisplay.insert(INSERT, 'Error')
-            Octaldisplay.delete(0, END)
-            Octaldisplay.insert(INSERT, 'Error')
-            Binarydisplay.delete(0, END)
-            Binarydisplay.insert(INSERT, 'Error')      
+            hexadecimal_change_display('Error')          
         else:
             hexdict = {"0":0, "1":1, "2":2, "3":3, "4":4, "5":5,
                        "6":6, "7":7, "8":8, "9":9, "a":10, "b":11,
@@ -129,19 +103,9 @@ def hex_convert():
             Binarydisplay.insert(INSERT, hex_to_dec_to_bin(hexadecimal))
     except UnboundLocalError:
         if hexadecimal == '0':
-            Decimaldisplay.delete(0, END)
-            Decimaldisplay.insert(INSERT, '0')
-            Octaldisplay.delete(0, END)
-            Octaldisplay.insert(INSERT, '0')
-            Binarydisplay.delete(0, END)
-            Binarydisplay.insert(INSERT, '0')
+            hexadecimal_change_display('0')
         else:
-            Decimaldisplay.delete(0, END)
-            Decimaldisplay.insert(INSERT, '')
-            Octaldisplay.delete(0, END)
-            Octaldisplay.insert(INSERT, '')
-            Binarydisplay.delete(0, END)
-            Binarydisplay.insert(INSERT, '')
+            hexadecimal_change_display('') 
                 
 #Hexadecimal to octal
 def hex_to_dec_to_oct(hexadecimal):
@@ -197,12 +161,7 @@ def oct_convert():
         if False in [f == '0' or f == '1' or f == '2' or f == '3'
                      or f == '4' or f == '5' or f == '6' or f == '7'
                      for f in octal]: 
-            Decimaldisplay.delete(0, END)
-            Decimaldisplay.insert(INSERT, 'Error')
-            Hexadecimaldisplay.delete(0, END)
-            Hexadecimaldisplay.insert(INSERT, 'Error')
-            Binarydisplay.delete(0, END)
-            Binarydisplay.insert(INSERT, 'Error')  
+            octal_change_display('Error')
         else:
            decimal = 0
            for digit in octal:
@@ -215,20 +174,9 @@ def oct_convert():
            Binarydisplay.insert(INSERT, oct_to_dec_to_bin())
     except UnboundLocalError:
         if octal == '0':
-            Decimaldisplay.delete(0, END)
-            Decimaldisplay.insert(INSERT, '0')
-            Hexadecimaldisplay.delete(0, END)
-            Hexadecimaldisplay.insert(INSERT, '0')
-            Binarydisplay.delete(0, END)
-            Binarydisplay.insert(INSERT, '0')             
+            octal_change_display('0')            
         else:
-            Decimaldisplay.delete(0, END)
-            Decimaldisplay.insert(INSERT, '')
-            Hexadecimaldisplay.delete(0, END)
-            Hexadecimaldisplay.insert(INSERT, '')
-            Binarydisplay.delete(0, END)
-            Binarydisplay.insert(INSERT, '')
-            
+            octal_change_display('')
 #Octal to hexadecimal
 def oct_to_dec_to_hex():
     octal = Octaldisplay.get()
@@ -266,12 +214,7 @@ def bin_convert():
     try:
         binary = Binarydisplay.get()
         if False in [f == '0' or f == '1' for f in binary]:
-            Decimaldisplay.delete(0, END)
-            Decimaldisplay.insert(INSERT, 'Error')
-            Hexadecimaldisplay.delete(0, END)
-            Hexadecimaldisplay.insert(INSERT, 'Error')
-            Octaldisplay.delete(0, END)
-            Octaldisplay.insert(INSERT, 'Error')  
+            binary_change_display('Error')
         else:
            decimal = 0
            for digit in binary:
@@ -284,19 +227,9 @@ def bin_convert():
            Octaldisplay.insert(INSERT, bin_to_dec_to_oct())
     except UnboundLocalError:
         if binary == '0':
-            Decimaldisplay.delete(0, END)
-            Decimaldisplay.insert(INSERT, '0')
-            Hexadecimaldisplay.delete(0, END)
-            Hexadecimaldisplay.insert(INSERT, '0')
-            Octaldisplay.delete(0, END)
-            Octaldisplay.insert(INSERT, '0')             
+            binary_change_display('0')            
         else:
-            Decimaldisplay.delete(0, END)
-            Decimaldisplay.insert(INSERT, '')
-            Hexadecimaldisplay.delete(0, END)
-            Hexadecimaldisplay.insert(INSERT, '')
-            Octaldisplay.delete(0, END)
-            Octaldisplay.insert(INSERT, '')
+            binary_change_display('')
             
 #Binary to hexadecimal
 def bin_to_dec_to_hex():
@@ -328,7 +261,39 @@ def bin_to_dec_to_oct():
     for j in octal[::-1]:
         octal_convert=octal_convert+str(j)
     return octal_convert
-           
+
+def decimal_change_display(s):
+    Octaldisplay.delete(0, END)
+    Octaldisplay.insert(INSERT, s)
+    Hexadecimaldisplay.delete(0, END)
+    Hexadecimaldisplay.insert(INSERT, s)
+    Binarydisplay.delete(0, END)
+    Binarydisplay.insert(INSERT, s)
+    
+def hexadecimal_change_display(s):
+    Decimaldisplay.delete(0, END)
+    Decimaldisplay.insert(INSERT, s)
+    Octaldisplay.delete(0, END)
+    Octaldisplay.insert(INSERT, s)
+    Binarydisplay.delete(0, END)
+    Binarydisplay.insert(INSERT, s)
+    
+def octal_change_display(s):
+    Decimaldisplay.delete(0, END)
+    Decimaldisplay.insert(INSERT, s)
+    Hexadecimaldisplay.delete(0, END)
+    Hexadecimaldisplay.insert(INSERT, s)
+    Binarydisplay.delete(0, END)
+    Binarydisplay.insert(INSERT, s)
+    
+def binary_change_display(s):
+    Decimaldisplay.delete(0, END)
+    Decimaldisplay.insert(INSERT, s)
+    Hexadecimaldisplay.delete(0, END)
+    Hexadecimaldisplay.insert(INSERT, s)
+    Octaldisplay.delete(0, END)
+    Octaldisplay.insert(INSERT, s)
+    
 #Title
 Title = Label(root, text= "Hexadecimal, Octal and Binary Converter", font = ('Avenir', 18, 'normal'))
 Title.grid(column = 0, columnspan = 7, padx = 5, pady = 5)
