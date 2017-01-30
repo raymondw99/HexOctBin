@@ -16,9 +16,7 @@ def clear():
 def dec_convert():
     #Decimal to hexadecimal
     decimal = Decimaldisplay.get()
-    if True in [f == '0' or f == '1' or f == '2' or f == '3'
-                 or f == '4' or f == '5' or f == '6' or f == '7'
-                 or f == '8' or f == '9' for f in decimal]:
+    if decimal.isdigit:
         if decimal == '0':
             decimal_change_display('0')            
         else:
